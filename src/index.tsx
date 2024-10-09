@@ -2,14 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import AuthProvider  from 'react-auth-kit';
 import reportWebVitals from './reportWebVitals';
-
+import createStore from 'react-auth-kit/createStore';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const store = createStore({
+  authName:'_auth',
+  authType:'cookie',
+  cookieDomain: window.location.hostname,
+  cookieSecure: window.location.protocol === 'https:',
+});
 root.render(
   <React.StrictMode>
+    <AuthProvider store={store}>
     <App />
+    </AuthProvider>
   </React.StrictMode>
 );
 

@@ -1,17 +1,31 @@
 import React from 'react';
+import {  Route } from 'react-router-dom';
 import Sidebar from '../components/sidebare/Sidebar'; // Assure-toi d'importer le bon chemin
+import Artistes from "./ArtistesDashboard/artist"
+// import CreateArtist from "./pages/ArtistesDashboard/CreateArtist"
+// import StateExposition from "./pages/ExpositionDashboard/StateExposition"
+// import StateArtist from "./pages/ArtistesDashboard/StateArtist"
+
+// import CreateOeuvre from "./pages/OeuvresDashboard/CreateOeuvre"
+
+// import StateOeuvre from "./pages/OeuvresDashboard/StateOeuvre"
+// import Exposition from "./pages/ExpositionDashboard/Exposition"
+// import CreateExposition from "./pages/ExpositionDashboard/CreateExposition"
 
 const Dashboard: React.FC = () => {
   return (
     <div className="flex">
-      {/* Sidebar intégrée avec les liens */}
-      <Sidebar />
-
-      {/* Main Content */}
-      <div className="ml-64 p-6 flex-1 bg-gray-100 min-h-screen">
-        <h1 className="text-4xl font-bold mb-8">Bienvenue sur le Dashboard</h1>
-        <p>Bienvenue dans votre tableau de bord, utilisez le menu pour naviguer.</p>
-      </div>
+      dffdfd
+       {/* <Route path="/Artistes"  element={<Artistes />}  /> */}
+        {/* <Route path="/CreateArtist" element={<CreateArtist />} />
+        <Route path="/StateArtist"  element={<StateArtist />}  />
+        <Route path="/Oeuvres" element={<Oeuvres />} />
+        <Route path="/CreateOeuvre" element={<CreateOeuvre />} />
+        <Route path="/StateOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<StateOeuvre />} />} />
+        <Route path="/Exposition" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Exposition />} />} />
+        <Route path="/CreateExposition" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<CreateExposition />} />} />
+        <Route path="/StateExposition" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<StateExposition />} />} />  */}
+      
     </div>
   );
 };
