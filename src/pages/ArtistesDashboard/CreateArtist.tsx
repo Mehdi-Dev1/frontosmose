@@ -1,4 +1,5 @@
 import React from 'react';
+import Sidebar from '../../components/sidebare/Sidebar';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -10,6 +11,7 @@ const About: React.FC = () => {
           retour dashboard
         </button>
       </Link>
+      <Sidebar/>
     </div>
   );
 };
