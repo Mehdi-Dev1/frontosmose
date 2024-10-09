@@ -10,11 +10,7 @@ const About: React.FC = () => {
           Crée un artiste
         </button>
       </Link>
-      <Link to="/editartist">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          modif artistes
-        </button>
-      </Link>
+ 
       <Link to="/StateArtist">
         <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           activer/desactive artiste

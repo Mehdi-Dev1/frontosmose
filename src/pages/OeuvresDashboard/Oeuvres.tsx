@@ -10,11 +10,7 @@ const About: React.FC = () => {
           Crée une oeuvre
         </button>
       </Link>
-      <Link to="/editoeuvre">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          modif Oeuvres
-        </button>
-      </Link>
+
       <Link to="/stateoeuvre">
         <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           activer/desactive Oeuvres
