@@ -1,15 +1,15 @@
 // src/pages/Login.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import useSignIn from 'react-auth-kit/hooks/useSignIn';
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const signIn = useSignIn();
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     // Remplace l'URL par celle de ton endpoint d'authentification
     const response = await fetch('http://localhost:8889/api/users/login', {
       method: 'POST',
@@ -22,7 +22,17 @@ const Login: React.FC = () => {
     if (response.ok) {
       const data = await response.json();
       // Enregistrer le token JWT dans localStorage ou context
-      localStorage.setItem('token', data.token);
+      signIn({
+        auth: {
+            token: data.token ,
+            type: 'Bearer'
+        },
+        userState: {
+              name: data.name,
+              uid: data.id,
+              role: data.role
+          }
+      })
       navigate('/dashboard');
     } else {
       alert('Échec de la connexion. Vérifiez vos identifiants.');
