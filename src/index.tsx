@@ -27,7 +27,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const auth = useAuthUser();
   let token = useAuthHeader();
   let isConnected: boolean = true;
-  if (!auth) {
+  if (!auth ) {
     isConnected = false;
   }else{
     if(token != null){
