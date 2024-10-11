@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import Admin from './Admin';
 import LoginAdmin from './pages/Login';
+import Oeuvres from "./pages/OeuvresDashboard/Oeuvres";
+import CreateOeuve from "./pages/OeuvresDashboard/CreateOeuvre"
 import Dashboard from './pages/Dashboard';
 import AuthProvider  from 'react-auth-kit';
 import reportWebVitals from './reportWebVitals';
@@ -32,7 +34,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   }else{
     if(token != null){
       const user = JSON.parse(atob(token.split('.')[1]))
-      if(token && user.role["role"]!="admin"){
+      if(token && user.role["role"]!=="admin"){
         isConnected = false;
       }
     }
@@ -41,7 +43,6 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
 };
 const Login: React.FC<PrivateRouteProps> = ({ children }) => {
   const auth = useAuthUser();
-  const token = useAuthHeader();
   let isConnected: boolean = true;
   if (!auth) {
     isConnected = false;
@@ -61,7 +62,15 @@ const router = createBrowserRouter([
         children: [{
           path: "dashboard",
           element: <PrivateRoute><Dashboard /></PrivateRoute>
-        }]
+        },{
+          path:"oeuvres",
+          element:<PrivateRoute><Oeuvres /></PrivateRoute>
+        },
+        {
+          path:"createoeuvre",
+          element:<PrivateRoute><CreateOeuve/></PrivateRoute>
+        }
+      ]
       }
     ]
   },
