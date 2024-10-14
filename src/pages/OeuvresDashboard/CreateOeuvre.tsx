@@ -50,7 +50,6 @@ const selectInpitArtist = async() =>{
   const [numberOfFile, setNumberOfFile] = useState(0);
 
   const onSubmit = async (data: FormData) => {
-
     const artist = document.getElementById('artist');
     let isArtist = "";
     if (artist) {

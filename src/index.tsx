@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import "./App.css"
 import Admin from './Admin';
 import LoginAdmin from './pages/Login';
 import Oeuvres from "./pages/OeuvresDashboard/Oeuvres";
 import CreateOeuve from "./pages/OeuvresDashboard/CreateOeuvre"
+import Listing from './pages/visiteurs/oeuvres/Listing';
 import Dashboard from './pages/Dashboard';
 import AuthProvider  from 'react-auth-kit';
 import reportWebVitals from './reportWebVitals';
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
     children:[{
         path: "login",
         element: <Login><LoginAdmin /></Login>
+      },
+      {
+        path: "/oeuvres/listing/:id",
+        element: <Listing />
       },
       {
         element: <Admin />,
