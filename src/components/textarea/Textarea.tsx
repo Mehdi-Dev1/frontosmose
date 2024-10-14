@@ -5,7 +5,7 @@ type TextareaProps = {
   label: string;
   name: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  register: any; // Should come from react-hook-form's useForm
+  register: any; 
   validationSchema: object;
   errors: FieldErrors<any>;
   value: string;
@@ -41,18 +41,21 @@ const Textarea: React.FC<TextareaProps> = ({
   return (
     <>
       <label className={labelcss}>{label}</label>
-      <div className={classname}>
+      <div className='h-24'>
         <textarea
           id={name}
           {...register(name, validationSchema)}
+          className={classname}
         />
-        {errors[name]?.type === 'required' && <div className="error">{messRequired}</div>}
-        {errors[name]?.type === 'minLength' && <div className="error">{messMinLength}</div>}
-        {errors[name]?.type === 'maxLength' && <div className="error">{messMaxLength}</div>}
-        {errors[name]?.type === 'pattern' && <div className="error">{messPattern}</div>}
-        {errors[name]?.type === 'max' && <div className="error">{messMax}</div>}
-        {errors[name]?.type === 'min' && <div className="error">{messMin}</div>}
-        {errors[name]?.type === 'validate' && <div className="error">{messValidate}</div>}
+        <div className='h-2.5'>
+          {errors[name]?.type === 'required' && <div className="text-red-500">{messRequired}</div>}
+          {errors[name]?.type === 'minLength' && <div className="text-red-500">{messMinLength}</div>}
+          {errors[name]?.type === 'maxLength' && <div className="text-red-500">{messMaxLength}</div>}
+          {errors[name]?.type === 'pattern' && <div className="text-red-500">{messPattern}</div>}
+          {errors[name]?.type === 'max' && <div className="text-red-500">{messMax}</div>}
+          {errors[name]?.type === 'min' && <div className="text-red-500">{messMin}</div>}
+          {errors[name]?.type === 'validate' && <div className="text-red-500">{messValidate}</div>}
+        </div>
       </div>
     </>
   );

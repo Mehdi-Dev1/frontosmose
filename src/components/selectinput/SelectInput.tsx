@@ -8,6 +8,7 @@ interface SelectInputProps {
   validationSchema: object;
   register: UseFormRegister<any>;
   defaultValue?: string | number; // Utilisez defaultValue à la place de value
+  className:string;
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({ 
@@ -16,7 +17,8 @@ const SelectInput: React.FC<SelectInputProps> = ({
   name, 
   validationSchema, 
   register, 
-  defaultValue 
+  defaultValue,
+  className 
 }) => {
   return (
     <div>
@@ -25,6 +27,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         id={name}
         defaultValue={defaultValue} // Remplacez value par defaultValue
         {...register(name, validationSchema)}
+        className={className}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>

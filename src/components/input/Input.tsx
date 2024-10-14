@@ -62,15 +62,16 @@ const Input : React.FC<InputProps> = ({
       {...register(name, validationSchema)}
        
     />
-  <div>
-     {errors && errors[name]?.type === 'required' && <div className="error">{messRequired}</div>}
-      {errors && errors[name]?.type === 'minLength' && <div className="error">{messMinLength}</div>}
-      {errors && errors[name]?.type === 'maxLength' && <div className="error">{messMaxLength}</div>}
-      {errors && errors[name]?.type === 'pattern' && <div className="error">{messPattern}</div>}
-      {errors && errors[name]?.type === 'max' && <p className="error">{messMax}</p>}
-      {errors && errors[name]?.type === 'min' && <div className="error">{messMin}</div>}
-      {errors && errors[name]?.type === 'validate' && <div className="error">{messValidate}</div>}
-    </div></div>
+    <div className='h-2.5'>
+     {errors && errors[name]?.type === 'required' && <div className="text-red-500">{messRequired}</div>}
+      {errors && errors[name]?.type === 'minLength' && <div className="text-red-500">{messMinLength}</div>}
+      {errors && errors[name]?.type === 'maxLength' && <div className="text-red-500">{messMaxLength}</div>}
+      {errors && errors[name]?.type === 'pattern' && <div className="text-red-500">{messPattern}</div>}
+      {errors && errors[name]?.type === 'max' && <p className="text-red-500">{messMax}</p>}
+      {errors && errors[name]?.type === 'min' && <div className="text-red-500">{messMin}</div>}
+      {errors && errors[name]?.type === 'validate' && <div className="text-red-500">{messValidate}</div>}
+    </div>
+  </div>
   );
 }
 
