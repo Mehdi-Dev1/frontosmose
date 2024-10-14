@@ -7,9 +7,6 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import Artistes from "./pages/ArtistesDashboard/artist"
-import CreateArtist from "./pages/ArtistesDashboard/CreateArtist"
-import EditArtist from "./pages/ArtistesDashboard/EditArtist"
-import StateArtist from "./pages/ArtistesDashboard/StateArtist"
 import Oeuvres from "./pages/OeuvresDashboard/Oeuvres"
 import CreateOeuvre from "./pages/OeuvresDashboard/CreateOeuvre"
 import EditOeuvre from "./pages/OeuvresDashboard/EditOeuvre"
@@ -30,9 +27,7 @@ const App: React.FC = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Dashboard" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Dashboard />} />} />
         <Route path="/Artistes" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Artistes />} />} />
-        <Route path="/CreateArtist" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<CreateArtist />} />} />
-        <Route path="/EditArtist" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<EditArtist />} />} />
-        <Route path="/StateArtist" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<StateArtist />} />} />
+
         <Route path="/Oeuvres" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Oeuvres />} />} />
         <Route path="/CreateOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<CreateOeuvre />} />} />
         <Route path="/EditOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<EditOeuvre />} />} />

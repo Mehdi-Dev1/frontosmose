@@ -1,18 +1,17 @@
-// src/components/Artists.tsx
 import React, { useEffect, useState } from 'react';
 
 interface Artist {
     idArtist: number;
     name: string;
     description: string;
-    // Ajoutez d'autres propriétés d'artiste si nécessaire
+    photo: string; // Add photo property
 }
 
 const Artists: React.FC = () => {
     const [artists, setArtists] = useState<Artist[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
-    const [searchTerm, setSearchTerm] = useState<string>(''); // État pour la recherche
+    const [searchTerm, setSearchTerm] = useState<string>(''); // State for search
 
     useEffect(() => {
         const fetchArtists = async () => {
@@ -48,7 +47,7 @@ const Artists: React.FC = () => {
         fetchArtists();
     }, []);
 
-    // Filtrer les artistes en fonction du terme de recherche
+    // Filter artists based on the search term
     const filteredArtists = artists.filter(artist =>
         artist.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -63,22 +62,30 @@ const Artists: React.FC = () => {
 
     return (
         <div className="p-4">
-            {/* Barre de recherche */}
+            {/* Search bar */}
             <input
                 type="text"
                 placeholder="Rechercher par nom d'artiste..."
                 className="mb-4 p-2 border border-gray-300 rounded w-full md:w-1/3"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)} // Met à jour l'état de recherche
+                onChange={(e) => setSearchTerm(e.target.value)} // Update search state
             />
 
-            {/* Affichage des artistes filtrés */}
+            {/* Display filtered artists */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredArtists.map((artist) => (
                     <div
                         key={artist.idArtist}
                         className="border border-gray-300 rounded-lg shadow-md overflow-hidden p-4 flex flex-col"
                     >
+                        {/* Display artist photo */}
+                        <div className="relative h-48 w-full mb-2"> {/* Adjust height for portrait */}
+                            <img
+                                src={`http://localhost:8889/uploads/${artist.photo}`} // Update the image source
+                                alt={artist.name}
+                                className="absolute inset-0 h-full w-full object-cover" // Cover full area
+                            />
+                        </div>
                         <h3 className="text-lg font-bold mb-2">{artist.name}</h3>
                         <p className="text-gray-700 mb-4">{artist.description}</p>
                         <button className="mt-auto bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600">
