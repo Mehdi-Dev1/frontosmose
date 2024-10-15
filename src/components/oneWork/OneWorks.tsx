@@ -24,12 +24,10 @@ const OneWorks :React.FC<oneWorksProps>= ({
   return (
     <div className={classNameContainer}>
       {pictures.length > 0 && (
-
         <img className={classNamePictures} src={`http://localhost:8889/uploads/${pictures[0].pictures}`} alt={name} />
       )}
-      <h2 className={classNameName}>{name}</h2>
-      <p>{isCreatedAt}</p>
-      <p> {artist}</p>
+      <h2 className={classNameName}>{name}, {isCreatedAt}</h2>
+      <p className={classNameName}> {artist}</p>
     </div>
   )
 }

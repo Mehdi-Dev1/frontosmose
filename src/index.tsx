@@ -10,6 +10,7 @@ import CreateOeuve from "./pages/OeuvresDashboard/CreateOeuvre"
 import Listing from './pages/visiteurs/oeuvres/Listing';
 import Dashboard from './pages/Dashboard';
 import AuthProvider  from 'react-auth-kit';
+import DetailOeuvre from "./pages/visiteurs/oeuvres/DetailOeuvre"
 import reportWebVitals from './reportWebVitals';
 import createStore from 'react-auth-kit/createStore';
 import useAuthUser from 'react-auth-kit/hooks/useAuthUser';
@@ -55,8 +56,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children:[{
-        path: "login",
+    children: [
+      {
+        path: "/login",
         element: <Login><LoginAdmin /></Login>
       },
       {
@@ -64,23 +66,31 @@ const router = createBrowserRouter([
         element: <Listing />
       },
       {
-        element: <Admin />,
-        children: [{
-          path: "dashboard",
-          element: <PrivateRoute><Dashboard /></PrivateRoute>
-        },{
-          path:"oeuvres",
-          element:<PrivateRoute><Oeuvres /></PrivateRoute>
-        },
-        {
-          path:"createoeuvre",
-          element:<PrivateRoute><CreateOeuve/></PrivateRoute>
-        }
-      ]
+        path: "/oeuvres/description/:id",
+        element:<DetailOeuvre/>
       }
     ]
   },
+  {
+    path: "/admin",
+    element: <PrivateRoute><Admin /></PrivateRoute>,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />
+      },
+      {
+        path: "oeuvres",
+        element: <Oeuvres />
+      },
+      {
+        path: "createoeuvre",
+        element: <CreateOeuve />
+      }
+    ]
+  }
 ]);
+
 root.render(
   <React.StrictMode>
     <AuthProvider store={store}>
