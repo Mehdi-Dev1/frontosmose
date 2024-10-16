@@ -10,7 +10,7 @@ interface Image {
 interface Oeuvre {
   idArtist: number;
   name: string;
-  artist: string;
+  artiste: string;
   pictures: Image[];
   isCreatedAt: string;
   description: string;
@@ -72,13 +72,22 @@ const DetailOeuvre: React.FC = () => {
             <p>Aucune image disponible pour cette oeuvre.</p>
           )}
 
-          <article className="flex flex-col items-center">
+          <article className="textDescriptionOeuvre">
           
           
-            <h1>{oeuvre.name}, {new Date(oeuvre.isCreatedAt).getFullYear()}</h1>
-            <h2>{oeuvre.artist}</h2>
+            <h1 className='h1detailoeuvre'><strong>{oeuvre.name}, {new Date(oeuvre.isCreatedAt).getFullYear()}</strong></h1>
+            <h2 className='h2detailoeuvre'>{oeuvre.artiste}</h2>
             <p className="textDescription">{oeuvre.description}</p>
-            <NavLink to={`/artistes/decouvrir/${oeuvre.idArtist}`}>Découvrir plus d'oeuvres</NavLink>
+            
+            
+          </article>
+          <article>
+
+          <div className="backgroundLink">
+            <NavLink to={`/artistes/decouvrir/${oeuvre.idArtist}`}>
+            <div className="linkMoreWorks">Découvrir plus d'oeuvres</div>
+            </NavLink>
+            </div>
           </article>
         </div>
       ))}

@@ -81,14 +81,20 @@ const DetailArtist: React.FC = () => {
             <p>Aucune image disponible pour cette oeuvre.</p>
           )}
 
-          <article className="flex flex-col items-center">
+          <article className="textDescriptionArtiste">
           
           
             
-            <h1 className='text-xl'>{a.artiste}</h1>
+            <h1 className='text-xl'><strong>{a.artiste}</strong></h1>
             <p className="textDescription">{a.description}</p>
             
           </article>
+          <article className="socialMedia">
+            <h1><strong>Suivez la sur ses réseaux</strong></h1>
+            <img src="/assets/images/FOOTER.png" alt="social media" />
+
+          </article>
+          <article className="divfinish"></article>
         </div>
       ))}
       </section>

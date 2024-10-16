@@ -61,9 +61,9 @@ const Listing: React.FC = () => {
                 isCreatedAt={year.toString()} // Passer uniquement l'année
                 artist={oeuvre.artiste}
                 pictures={oeuvre.pictures}
-                classNamePictures="w-32 h-36"
-                classNameContainer="bg-orange-100 w-36 h-60 flex justify-center flex-col items-center pt-5"
-                classNameName="on-works"
+                classNamePictures="w-32 h-36 mt-2"
+                classNameContainer="backGround w-36 h-60 flex  flex-col items-center mt-10 "
+                classNameName="on-works m-2"
               />
             </NavLink>
           );
