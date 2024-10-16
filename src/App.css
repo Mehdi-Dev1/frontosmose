@@ -9,12 +9,13 @@
   --bg-description : rgba(238, 231, 221, 1);
   --bg-main: #C1B5A7 ;
   --color :  rgba(35, 29, 28, 1);
+  --font : url("./../public/assets/fonts/Metropolis\ Font\ family/Metropolis-Black.otf") format('opentype');
 
 }
 .h1-description{
   background-color: var(--bg-main);
   width:100%;
-  height:300px;
+  height:500px;
   position: relative;
   text-align: center;
 }
@@ -26,14 +27,14 @@
 }
 .textDescription{
   margin-top: 12px;
-  src:url("./../public/assets/fonts/metropolis.regular.otf") format('opentype');
+  src:var(--font);
   font-family: Metropolis;
   color :var(--color);
   text-align: center;
 }
 h1{
   font-size:34px;
-  src:url("./../public/assets/fonts/metropolis.regular.otf") format('opentype');
+  src:var(--font);
   font-family: Metropolis;
 }
 .logoHeader{
@@ -81,7 +82,7 @@ main{
   background-color : var(--bg-beige) ;
 }
 .on-works{
-  src:url("./../public/assets/fonts/metropolis.regular.otf") format('opentype');
+  src:var(--font);
   font-family: Metropolis;
   text-align: center;
 }
@@ -92,4 +93,11 @@ main{
   background-color: black;
   float:right;
   margin-right: 7.5%;
+}
+.imageWorks{
+  width:138px;
+  height:190px;
+}
+.borderImageWorks{
+  border:2px solid white;
 }

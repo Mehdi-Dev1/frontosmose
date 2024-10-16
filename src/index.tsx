@@ -8,7 +8,9 @@ import LoginAdmin from './pages/Login';
 import Oeuvres from "./pages/OeuvresDashboard/Oeuvres";
 import CreateOeuve from "./pages/OeuvresDashboard/CreateOeuvre"
 import Listing from './pages/visiteurs/oeuvres/Listing';
+import ListingArtists from './pages/visiteurs/artistes/ListingArtists';
 import Dashboard from './pages/Dashboard';
+import DetailArtist from './pages/visiteurs/artistes/DetailArtist';
 import AuthProvider  from 'react-auth-kit';
 import DetailOeuvre from "./pages/visiteurs/oeuvres/DetailOeuvre"
 import reportWebVitals from './reportWebVitals';
@@ -68,11 +70,21 @@ const router = createBrowserRouter([
       {
         path: "/oeuvres/description/:id",
         element:<DetailOeuvre/>
+      },
+      {
+        path: "/artistes/listing",
+        element:<ListingArtists/>
+      },
+      {
+        path: "/artistes/description/:id",
+        element:<DetailArtist/>
       }
+      
     ]
   },
   {
     path: "/admin",
+
     element: <PrivateRoute><Admin /></PrivateRoute>,
     children: [
       {
@@ -92,11 +104,11 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <React.StrictMode>
+
     <AuthProvider store={store}>
       <RouterProvider router={router} />
     </AuthProvider>
-  </React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

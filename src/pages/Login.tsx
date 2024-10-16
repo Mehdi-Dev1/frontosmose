@@ -33,7 +33,7 @@ const Login: React.FC = () => {
               role: data.role
           }
       })
-      navigate('/dashboard');
+      navigate('/admin/dashboard');
     } else {
       alert('Échec de la connexion. Vérifiez vos identifiants.');
     }

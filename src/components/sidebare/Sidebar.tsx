@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
           {/* Lien vers Les Œuvres */}
           <li className="mb-4">
             <Link 
-              to="/oeuvres" 
+              to="/admin/oeuvres" 
               className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
             >
               Les Œuvres
@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
           {/* Lien vers Les Expositions */}
           <li className="mb-4">
             <Link 
-              to="/exposition" 
+              to="/admin//exposition" 
               className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
             >
               Les Expositions
@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
           {/* Lien vers Configurer les Prix */}
           <li className="mb-4">
             <Link 
-              to="/configurer-prix" 
+              to="/admin//configurer-prix" 
               className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
             >
               Configurer les Prix
