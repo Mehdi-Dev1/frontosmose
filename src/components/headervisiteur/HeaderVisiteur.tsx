@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react';
+import MenuBurger from '../menuburger/MenuBurger';
 
 const HeaderVisiteur: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    console.log(isMenuOpen)
+    setIsMenuOpen(prevState => !prevState);
+  };
+
   return (
-    <header className="w-80 h-40 relative  flex justify-center  border-2">
-      <div>
-        <div className='logoHeader flex justify-center items-center flex-col'>
-          <div className='nameLogo'>OSEMOSE</div>
-          <div className='domaine'>Peinture ̇Sculpture ̇Photographie</div>
+    <>
+      <header className="w-80 h-40 relative flex justify-center ">
+        <div>
+          <div className='logoHeader flex justify-center  flex-col items-center'>
+            <div className='nameLogo'>OSEMOSE</div>
+            <div className='domaine'>Peinture ̇Sculpture ̇Photographie</div>
+          </div>
         </div>
-      </div>
+        <img 
+          className="menuburger" 
+          onClick={toggleMenu} 
+          src="http://localhost:3000/assets/images/Vector.png" 
+          alt="Menu Toggle" 
+        />
+      </header>
+      {isMenuOpen && <MenuBurger />}
+    </>
+  );
+};
 
-        
-          <img className="menuburger " src="http://localhost:3000/assets/images/Vector.png"/>
-        
-  
-      
-    </header>
-  )
-}
-
-export default HeaderVisiteur
+export default HeaderVisiteur;

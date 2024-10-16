@@ -6,7 +6,7 @@ import useAuthHeader from 'react-auth-kit/hooks/useAuthHeader';
 import Textarea from '../../components/textarea/Textarea';
 import SelectInput from '../../components/selectinput/SelectInput';
 import BtnSubmit from '../../components/btnsubmit/BtnSubmit';
-
+import Sidebar from '../../components/sidebare/Sidebar';
 const CreateOeuve: React.FC = () => {
   const authHeader = useAuthHeader();
   const navigate = useNavigate()
@@ -58,14 +58,14 @@ const selectInpitArtist = async() =>{
 
     const formData = new window.FormData();
     formData.append("name", data.name);
-      formData.append("isCreatedAt", data.iscreatedat);
-      formData.append("idArtist", isArtist);
-      formData.append("description", data.message);
+    formData.append("isCreatedAt", data.iscreatedat);
+    formData.append("idArtist", isArtist);
+    formData.append("description", data.message);
     data.files.forEach((fileWrapper, index) => {
       if (fileWrapper && fileWrapper.file && fileWrapper.file.length > 0) {
         formData.append(`image`, fileWrapper.file[index]);
       } else {
-        console.warn(`File at index ${index} is empty or invalid`);
+       // console.warn(`File at index ${index} is empty or invalid`);
       }
     });
 
@@ -78,7 +78,7 @@ const selectInpitArtist = async() =>{
         body: formData,
       })
       if(response.ok){
-        navigate("/dashboard")
+        navigate("/admin/dashboard")
       } else {
         //affichage message erreur
         console.log("Error in response");
@@ -102,6 +102,8 @@ const selectInpitArtist = async() =>{
     setText(e.target.value)
   }
   return (
+    <>
+    <Sidebar/>
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl mb-4">la page pour crée une oeuvre</h1>
       <Link to="/admin/dashboard">
@@ -225,6 +227,7 @@ const selectInpitArtist = async() =>{
           classe="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-60" id='submit' value='CREER' />
       </form>
     </div>
+    </>
   );
 };
 

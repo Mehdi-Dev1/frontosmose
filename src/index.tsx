@@ -52,7 +52,7 @@ const Login: React.FC<PrivateRouteProps> = ({ children }) => {
   if (!auth) {
     isConnected = false;
   }
-  return isConnected ? <Navigate to="/dashboard" /> : <>{children}</>;
+  return isConnected ? <Navigate to="/admin/dashboard" /> : <>{children}</>;
 };
 const router = createBrowserRouter([
   {

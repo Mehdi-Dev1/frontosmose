@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   return (
+    <div className="flex">
+      
+      
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl mb-4">la page pour crée une expo</h1>
       <Link to="/dashboard">
@@ -10,6 +13,7 @@ const About: React.FC = () => {
           retour dashboard
         </button>
       </Link>
+    </div>
     </div>
   );
 };
