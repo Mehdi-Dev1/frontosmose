@@ -9,7 +9,7 @@ import PrivateRoute from './components/Routes/PrivateRoute';
 import Artistes from "./pages/ArtistesDashboard/artist"
 import Oeuvres from "./pages/OeuvresDashboard/Oeuvres"
 import CreateOeuvre from "./pages/OeuvresDashboard/CreateOeuvre"
-import EditOeuvre from "./pages/OeuvresDashboard/EditOeuvre"
+
 import StateOeuvre from "./pages/OeuvresDashboard/StateOeuvre"
 import Exposition from "./pages/ExpositionDashboard/Exposition"
 import CreateExposition from "./pages/ExpositionDashboard/CreateExposition"
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
         <Route path="/Oeuvres" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<Oeuvres />} />} />
         <Route path="/CreateOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<CreateOeuvre />} />} />
-        <Route path="/EditOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<EditOeuvre />} />} />
+
         <Route path="/StateOeuvre" element={<PrivateRoute isAuthenticated={isAuthenticated} element={<StateOeuvre />} />} />
 
 
