@@ -42,11 +42,14 @@ const DetailOeuvre: React.FC = () => {
   }, [id]);
 
   if (!oeuvre) {
-    return <p>Loading...</p>;
+    return(
+      <main className="flex flex-col items-center bg-white"></main>
+    ) 
   }
 
   return (
     <main className="flex flex-col items-center bg-white">
+    {id}
       <h1 className='h1-description'>DESCRIPTION</h1>
       <img src={oeuvre.image} className="absolute w-56 h-96 top-72" alt={`${oeuvre.name} artwork`} />
       <article className='description flex flex-col items-center'>
