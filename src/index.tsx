@@ -12,6 +12,7 @@ import ListingArtists from './pages/visiteurs/artistes/ListingArtists';
 import Dashboard from './pages/Dashboard';
 import DetailArtist from './pages/visiteurs/artistes/DetailArtist';
 import ListingExposition from './pages/visiteurs/exposition/ListingExposition';
+import DetailExposition from './pages/visiteurs/exposition/DetailExposition';
 import AuthProvider  from 'react-auth-kit';
 import DetailOeuvre from "./pages/visiteurs/oeuvres/DetailOeuvre"
 import reportWebVitals from './reportWebVitals';
@@ -83,7 +84,12 @@ const router = createBrowserRouter([
       {
         path: "/expositions/:id",
         element:<ListingExposition/>
+      },
+      {
+        path: "/expositions/description/:id",
+        element:<DetailExposition/>
       }
+      
       
     ]
   },
