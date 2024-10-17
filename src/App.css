@@ -17,6 +17,14 @@
 body{
   color : var(--color)
 }
+.containerOneExposition{
+  width:262px;
+  height:428px;
+  background-color: var(--bg-one-work);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
 .linkMoreWorks{
   background-color: var(--bg-menuburger);
   width:214px;
@@ -30,6 +38,27 @@ body{
   position: absolute;
   left: 15%;
   top:-20px;
+}
+.h1NameOneExposition, .dateExposition{
+  font-size: 12px;
+  src :var(--font-bold);
+  font-size: Metropolis;
+}
+.dateExposition{
+  margin-top: 10px;
+}
+.descriptionOneExposition{
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size:12px;
+}
+.imageOneExposition{
+  width:244px;
+  height:193px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 .backgroundLink{
   background-color:  var(--color-menuburger );
@@ -106,7 +135,7 @@ body{
 }
 h1{
   font-size:34px;
-  src:var(--font);
+  src:var(--font-bold);
   font-family: Metropolis;
 }
 .logoHeader{

@@ -48,14 +48,16 @@ const selectInpitArtist = async() =>{
 }
 
   const [numberOfFile, setNumberOfFile] = useState(0);
-
+  const [numberImage, setNumberImage] = useState(true)
+  const handleFormSubmit = (event: React.FormEvent) => {
+    handleSubmit(onSubmit);
+  };
   const onSubmit = async (data: FormData) => {
     const artist = document.getElementById('artist');
     let isArtist = "";
     if (artist) {
       isArtist = (artist as HTMLInputElement).value;
     }
-
     const formData = new window.FormData();
     formData.append("name", data.name);
     formData.append("isCreatedAt", data.iscreatedat);
@@ -65,7 +67,8 @@ const selectInpitArtist = async() =>{
       if (fileWrapper && fileWrapper.file && fileWrapper.file.length > 0) {
         formData.append(`image`, fileWrapper.file[index]);
       } else {
-       // console.warn(`File at index ${index} is empty or invalid`);
+        setNumberImage(false)
+       console.warn(`File at index ${index} is empty or invalid`);
       }
     });
 
@@ -111,7 +114,7 @@ const selectInpitArtist = async() =>{
           retour dashboard
         </button>
       </Link>
-      <form id='form' onSubmit={handleSubmit(onSubmit)} >
+      <form id='form' onSubmit={handleFormSubmit} >
         <div className='flex justify-between'>
 
         

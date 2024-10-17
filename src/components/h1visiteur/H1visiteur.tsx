@@ -1,7 +1,7 @@
 import React from 'react'
 interface h1Props {
     part1:string;
-    part2:string;
+    part2:any;
     classNameH1:string;
     containerParti1:string;
     containerParti2 : string ;
