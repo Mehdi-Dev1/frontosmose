@@ -70,7 +70,9 @@ const ListingExposition: React.FC = () => {
           const finishMonth = new Intl.DateTimeFormat('fr-FR', options).format(finishDate); 
           const finishYear = startDate.getFullYear();
           const debut = `${startDay} ${startMonth} ${startYear}`;
-          const fin =  `${finishDay} ${finishMonth} ${finishYear}`
+          const fin =  `${finishDay} ${finishMonth} ${finishYear}`;
+          let courtDescription = e.description.slice(0,100)
+          courtDescription += "...";
           return (
             
             <NavLink to={`/expositions/description/${e.idExposition}`}>
@@ -80,7 +82,7 @@ const ListingExposition: React.FC = () => {
                 name={e.name}
                 isStartAt={debut}
                 isFinishAt={fin}
-                description={e.description}
+                description={courtDescription}
                 idPriceAdult={e.adultPrice}
                 idPriceChild={e.idExposition}
                 idAdmin={e.idAdmin}
