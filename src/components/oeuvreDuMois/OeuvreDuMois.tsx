@@ -10,7 +10,7 @@ interface oneWorksProps{
     classNameContainer:string;
     classNameName:string;
 }
-const OneWorks :React.FC<oneWorksProps>= ({
+const OeuvreDuMois :React.FC<oneWorksProps>= ({
     idWorks,
     name,
     isCreatedAt,
@@ -26,10 +26,12 @@ const OneWorks :React.FC<oneWorksProps>= ({
       {pictures.length > 0 && (
         <img className={classNamePictures} src={`http://localhost:8889/public/uploads/${pictures[0].pictures}`} alt={name} />
       )}
-      <h2 className={classNameName}><strong>{name} ,{isCreatedAt}</strong></h2>
-      <p className={classNameName}> {artist}</p>
+      <div className="paragrapheOeuvreDuMois">
+        <p className="categorieOeuvre">PEINTURE</p>
+        <p className={classNameName}>«{name} »</p>
+      </div>
     </div>
   )
 }
 
-export default OneWorks
+export default OeuvreDuMois

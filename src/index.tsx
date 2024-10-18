@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import "./App.css"
 import Admin from './Admin';
+import Accueil from './pages/visiteurs/landing/Accueil';
 import LoginAdmin from './pages/Login';
 import Oeuvres from "./pages/OeuvresDashboard/Oeuvres";
 import CreateOeuve from "./pages/OeuvresDashboard/CreateOeuvre"
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <Accueil/>
+      },
       {
         path: "/login",
         element: <Login><LoginAdmin /></Login>

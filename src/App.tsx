@@ -32,9 +32,9 @@ const App: React.FC = () => {
       <Link to='/login'>login</Link>
       <HeaderVisiteur/>
       {/* {role["role"] === 'admin' ?" <AdminHeader />" : <HeaderVisiteur/>} */}
-      <main >
+      
         <Outlet/>
-      </main>
+      
     
     </div>
   );
