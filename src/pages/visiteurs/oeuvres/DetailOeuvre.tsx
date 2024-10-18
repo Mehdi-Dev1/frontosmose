@@ -62,7 +62,7 @@ const DetailOeuvre: React.FC = () => {
           {oeuvre.pictures && oeuvre.pictures.length > 0 ? (
             oeuvre.pictures.map((imageObject) => (
               <img
-                src={`http://localhost:8889/uploads/${imageObject.pictures}`} // Ajout d'une base URL si nécessaire
+                src={`http://localhost:8889/public/uploads/${imageObject.pictures}`} // Ajout d'une base URL si nécessaire
                 className="absolute w-56 h-96 top-72"
                 alt={`${oeuvre.name} artwork`}
                 key={imageObject.idPictures}

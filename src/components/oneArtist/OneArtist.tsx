@@ -21,7 +21,7 @@ const OneArtist  :React.FC<Artists>= ({
     <div>
       <div className={classNameContainer}>
       
-        <img className={classNamePictures} src={`http://localhost:8889/uploads/${image}`} alt={name} />
+        <img className={classNamePictures} src={`http://localhost:8889/public/uploads/${image}`} alt={name} />
       
       <h2 className={classNameName}>{name}</h2>
       <p className={classNameName}> {country}</p>

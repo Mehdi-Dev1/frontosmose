@@ -24,7 +24,7 @@ const OneWorks :React.FC<oneWorksProps>= ({
   return (
     <div className={classNameContainer}>
       {pictures.length > 0 && (
-        <img className={classNamePictures} src={`http://localhost:8889/uploads/${pictures[0].pictures}`} alt={name} />
+        <img className={classNamePictures} src={`http://localhost:8889/public/uploads/${pictures[0].pictures}`} alt={name} />
       )}
       <h2 className={classNameName}><strong>{name}, {isCreatedAt}</strong></h2>
       <p className={classNameName}> {artist}</p>

@@ -49,9 +49,7 @@ const selectInpitArtist = async() =>{
 
   const [numberOfFile, setNumberOfFile] = useState(0);
   const [numberImage, setNumberImage] = useState(true)
-  const handleFormSubmit = (event: React.FormEvent) => {
-    handleSubmit(onSubmit);
-  };
+;
   const onSubmit = async (data: FormData) => {
     const artist = document.getElementById('artist');
     let isArtist = "";
@@ -114,7 +112,7 @@ const selectInpitArtist = async() =>{
           retour dashboard
         </button>
       </Link>
-      <form id='form' onSubmit={handleFormSubmit} >
+      <form id='form' onSubmit={handleSubmit(onSubmit)} >
         <div className='flex justify-between'>
 
         
@@ -196,7 +194,7 @@ const selectInpitArtist = async() =>{
               message: 'Le message doit contenir au moins 10 caractères',
             },
             maxLength: {
-              value: 200,
+              value: 2000,
               message: 'Le message ne doit pas dépasser 200 caractères',
             },
           }}

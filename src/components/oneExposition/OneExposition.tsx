@@ -37,7 +37,7 @@ const OneExposition :React.FC <Exposition>= ({
     
   return (
     <div className={classNameContainer}>
-        <img className={classNamePictures} src={`http://localhost:8889/uploads/${image}`} alt={name} />
+      <img className={classNamePictures} src={`http://localhost:8889/public/uploads/${image}`} alt={name} />
       
       <h1 className={h1name}><strong>{name}</strong></h1>
       <p className={dateExposition}>{isStartAt} au {isFinishAt}</p>

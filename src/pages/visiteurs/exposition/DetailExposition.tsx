@@ -71,7 +71,7 @@ const DetailExposition: React.FC = () => {
           <h1 className="h1-description">EXPOSITION</h1>
           <article className="textDescriptionOeuvre">
             <img
-                src={`http://localhost:8889/uploads/${e.image}`} // Ajout d'une base URL si nécessaire
+                src={`http://localhost:8889/public/uploads/${e.image}`} // Ajout d'une base URL si nécessaire
                 className="absolute w-56 h-96 top-72"
                 alt={`${e.name} artwork`}
             />   

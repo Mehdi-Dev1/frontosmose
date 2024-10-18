@@ -60,7 +60,7 @@ const DetailArtist: React.FC = () => {
           <h1 className="h1-description">DESCRIPTION</h1>
             <div className='absolute  left-5 top-20 borderImageWorks'>
                 <img
-                    src={`http://localhost:8889/uploads/${a.image}`} // Ajout d'une base URL si nécessaire
+                    src={`http://localhost:8889/public/uploads/${a.image}`} // Ajout d'une base URL si nécessaire
                     className="imageWorks"
                     alt={`${a.name} artwork`}
                 />
@@ -70,7 +70,7 @@ const DetailArtist: React.FC = () => {
             a.pictures.map((imageObject) => (
                 <div className=' absolute  left-20 top-44 borderImageWorks'>
                      <img
-                        src={`http://localhost:8889/uploads/${imageObject.pictures}`} // Ajout d'une base URL si nécessaire
+                        src={`http://localhost:8889/public/uploads/${imageObject.pictures}`} // Ajout d'une base URL si nécessaire
                         className="w-44 h-64 "
                         alt={`${a.name} artwork`}
                         key={imageObject.idPictures}
