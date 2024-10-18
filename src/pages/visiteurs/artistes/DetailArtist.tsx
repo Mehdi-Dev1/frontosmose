@@ -32,12 +32,14 @@ const DetailArtist: React.FC = () => {
       });
       const contentType = response.headers.get('Content-Type');
       if (!response.ok) {
+        setArtist([])
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       if (contentType && contentType.includes('application/json')) {
         const data: Artist[] = await response.json(); // Assume you receive an array
         setArtist(data); // Set the array of oeuvres
       } else {
+        setArtist([])
         throw new Error('Response is not JSON');
       }
     } catch (error) {
@@ -49,16 +51,19 @@ const DetailArtist: React.FC = () => {
     fetchOeuvre();
   }, [id]);
 
-  if (!artist || artist.length === 0) {
-    return <main className="flex flex-col items-center bg-white"></main>;
+  if ( artist.length === 0) {
+    return <div className="flex flex-col items-center ">
+      <h1 >DESCRIPTION</h1>
+      <p> il y a une erreur dans la requete.</p>
+      </div>;
   }
   return (
     <main  >
       <section >
-      {artist.map((a) => (
+      {artist.length >0 && artist.map((a) => (
         <div key={id} className=" flex flex-col items-center relative">
           <h1 className="h1-description">DESCRIPTION</h1>
-            <div className='absolute  left-5 top-20 borderImageWorks'>
+            <div key={a.name} className='absolute  left-5 top-20 borderImageWorks'>
                 <img
                     src={`http://localhost:8889/public/uploads/${a.image}`} // Ajout d'une base URL si nécessaire
                     className="imageWorks"
@@ -68,7 +73,7 @@ const DetailArtist: React.FC = () => {
             
           {a.pictures && a.pictures.length > 0 ? (
             a.pictures.map((imageObject) => (
-                <div className=' absolute  left-20 top-44 borderImageWorks'>
+                <div key={id} className=' absolute  left-20 top-44 borderImageWorks'>
                      <img
                         src={`http://localhost:8889/public/uploads/${imageObject.pictures}`} // Ajout d'une base URL si nécessaire
                         className="w-44 h-64 "

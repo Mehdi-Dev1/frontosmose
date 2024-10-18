@@ -14,7 +14,7 @@ interface Oeuvre {
   pictures: Image[];
   isCreatedAt: string;
   description: string;
-}
+} 
 
 const DetailOeuvre: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,33 +29,47 @@ const DetailOeuvre: React.FC = () => {
         },
         body: JSON.stringify({ idWorks: id }),
       });
+  
       const contentType = response.headers.get('Content-Type');
+      
       if (!response.ok) {
+        setOeuvres([]);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+  
       if (contentType && contentType.includes('application/json')) {
-        const data: Oeuvre[] = await response.json(); // Assume you receive an array
-        console.log(data);
-        setOeuvres(data); // Set the array of oeuvres
+        const data = await response.json();
+  
+        // Vérifiez si data contient des erreurs
+        if (data.errors) {
+          setOeuvres([]);  // ou gérez les erreurs d'une autre manière
+          console.error('Erreurs de validation:', data.errors);
+          return;
+        }
+  
+        setOeuvres(data); // Si aucune erreur, stockez les oeuvres
       } else {
+        setOeuvres([]);
         throw new Error('Response is not JSON');
       }
     } catch (error) {
+      setOeuvres([]);
       console.error('Error fetching Oeuvre:', error);
     }
   };
+  
 
   useEffect(() => {
     fetchOeuvre();
   }, [id]);
 
   if (!oeuvres || oeuvres.length === 0) {
-    return <main className="flex flex-col items-center bg-white"></main>;
+    return <main className="flex flex-col items-center ">Il y a une erreur dans la requete.</main>;
   }
   return (
     <main  >
       <section >
-      {oeuvres.map((oeuvre) => (
+      {oeuvres.length >0  && oeuvres.map((oeuvre) => (
         <div key={id} className=" flex flex-col items-center ">
           <h1 className="h1-description">DESCRIPTION</h1>
 

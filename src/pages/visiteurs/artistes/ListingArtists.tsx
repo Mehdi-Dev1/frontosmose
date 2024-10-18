@@ -53,7 +53,7 @@ const ListingArtists: React.FC = () => {
       <article className='flex flex-row justify-around pb-20 flex-wrap'>
         {artist.map((a) => {
           return (
-            <NavLink to={`/artistes/description/${a.idArtist}`}>
+            <NavLink key={a.idArtist} to={`/artistes/description/${a.idArtist}`}>
                <OneArtist
                 key={a.idArtist} 
                 idArtist={a.idArtist}

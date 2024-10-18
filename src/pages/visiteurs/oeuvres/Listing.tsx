@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {NavLink} from "react-router-dom"
+import {NavLink, useParams} from "react-router-dom"
 import H1visiteur from '../../../components/h1visiteur/H1visiteur';
 import OneWorks from '../../../components/oneWork/OneWorks';
 
 const Listing: React.FC = () => {
-  // Déclaration de l'interface des oeuvres
+  const { id } = useParams<{ id: string }>();
   interface Oeuvres {
     idWorks: number; // Ajout d'un ID pour la clé unique
     name: string;
@@ -24,7 +24,7 @@ const Listing: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ idCategories: 1 }),
+        body: JSON.stringify({ idCategories: id }),
       });
       if (response.ok) {
         const data = await response.json();
@@ -50,10 +50,10 @@ const Listing: React.FC = () => {
         rowBottom="rowBottom"
       />
       <article className='flex flex-row justify-around pb-20 flex-wrap'>
-        {oeuvres.map((oeuvre) => {
+        { oeuvres.length>0 && oeuvres.map((oeuvre) => {
           const year = new Date(oeuvre.isCreatedAt).getFullYear(); // Récupérer l'année
           return (
-            <NavLink to={`/oeuvres/description/${oeuvre.idWorks}`}>
+            <NavLink key={oeuvre.idWorks}  to={`/oeuvres/description/${oeuvre.idWorks}`}>
               <OneWorks
                 key={oeuvre.idWorks} 
                 idWorks={oeuvre.idWorks}

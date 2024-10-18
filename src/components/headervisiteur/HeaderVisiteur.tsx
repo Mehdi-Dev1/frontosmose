@@ -5,7 +5,6 @@ const HeaderVisiteur: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    console.log(isMenuOpen)
     setIsMenuOpen(prevState => !prevState);
   };
 

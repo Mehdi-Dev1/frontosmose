@@ -75,7 +75,7 @@ const ListingExposition: React.FC = () => {
           courtDescription += "...";
           return (
             
-            <NavLink to={`/expositions/description/${e.idExposition}`}>
+            <NavLink key={e.idExposition} to={`/expositions/description/${e.idExposition}`}>
               <OneExposition
                 key={e.idExposition}
                 idExposition={e.idExposition}
